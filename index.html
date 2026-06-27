@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rooted Hands INC. | Nurture. Connect. Grow.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #6B9B2A;
+            --green-dark: #4A7A1A;
+            --green-light: #E8F0D8;
+            --cream: #FAF9F6;
+            --charcoal: #1A1A1A;
+            --gray: #6B6B6B;
+            --gray-light: #F0F0F0;
+            --white: #FFFFFF;
+            --accent: #D4A843;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        .logo-text span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--green-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(107,155,42,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .hero-content h1 em {
+            color: var(--green);
+            font-style: italic;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--green-dark);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107,155,42,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .hero-badge .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--green);
+            display: block;
+            line-height: 1;
+        }
+
+        .hero-badge .label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--green-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        /* Mission */
+        .mission {
+            background: var(--white);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-image {
+            position: relative;
+        }
+
+        .mission-image img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .mission-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--green);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .mission-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .mission-quote {
+            border-left: 4px solid var(--green);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        /* Programs */
+        .programs {
+            background: var(--cream);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .program-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--green-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .program-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .program-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Impact / Gallery */
+        .impact {
+            background: var(--white);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: var(--green-light);
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+            aspect-ratio: 1/2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--green);
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Team */
+        .team {
+            background: var(--cream);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+
+        .team-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-card .role {
+            color: var(--green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Donate CTA */
+        .donate {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donate::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .donate h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .donate p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .donate .btn-primary {
+            background: var(--white);
+            color: var(--green);
+        }
+
+        .donate .btn-primary:hover {
+            background: var(--cream);
+        }
+
+        .donate-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Contact / Footer */
+        .contact {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-icon {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .hero-badge {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin: -2rem auto 0;
+                width: fit-content;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            }
+
+            .mission-grid,
+            .programs-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.wide {
+                grid-column: span 2;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">RH</div>
+                <span class="logo-text">The Rooted Hands <span>INC.</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-tagline">Rooted in care. Growing through opportunity.</p>
+                <h1>Nurturing communities through <em>essential support</em> and <em>educational access</em>.</h1>
+                <p class="hero-desc">We provide food, school supplies, sports equipment, and scholarships to underserved individuals and families — locally and across the Caribbean.</p>
+                <div class="hero-buttons">
+                    <a href="#donate" class="btn btn-primary">Support Our Mission</a>
+                    <a href="#programs" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&h=600&fit=crop" alt="Colorful backpacks ready for donation">
+                <div class="hero-badge">
+                    <span class="number">500+</span>
+                    <span class="label">Lives Supported</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=700&fit=crop" alt="School supply kits being prepared">
+                </div>
+                <div class="mission-content">
+                    <span class="section-label">Our Mission</span>
+                    <h2>We believe that when basic needs are met, people can focus on learning, growing, and building a future rooted in stability, dignity, and hope.</h2>
+                    <p>The Rooted Hands INC. is a 501(c)(3) nonprofit organization dedicated to nurturing individuals and families by meeting essential needs — like food, school supplies, and sports equipment — while also creating pathways for long-term growth through access to education and scholarships.</p>
+                    <p>Founded in New York and serving communities locally and in the Caribbean, we operate with the conviction that care is the foundation of opportunity. Every backpack, every meal, every scholarship is a seed planted for a stronger tomorrow.</p>
+                    <div class="mission-quote">
+                        "Nurture. Connect. Grow. These are not just words on our logo — they are the principles that guide every decision we make."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Do</span>
+                <h2>Our Programs</h2>
+                <p>Four pillars of support designed to meet immediate needs and create lasting change.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">🎒</div>
+                    <h3>School Supplies & Backpacks</h3>
+                    <p>We assemble and distribute complete school supply kits — backpacks, notebooks, pencils, crayons, and more — to ensure every child starts the school year prepared and confident.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🍎</div>
+                    <h3>Food Distribution</h3>
+                    <p>Through community partnerships and direct outreach, we provide nutritious food to families experiencing food insecurity, both locally in New York and internationally in the Caribbean.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🏆</div>
+                    <h3>Sports Equipment</h3>
+                    <p>We supply youth athletic programs and individual athletes with essential sports equipment, promoting physical health, teamwork, and personal development through athletics.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🎓</div>
+                    <h3>Educational Scholarships</h3>
+                    <p>Our need-based scholarships help youth pursue primary, secondary, and post-secondary education. Funds are paid directly to institutions, removing financial barriers to academic success.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🌍</div>
+                    <h3>International Outreach</h3>
+                    <p>We partner with local organizations in Caribbean countries to deliver food, supplies, and educational resources, extending our mission beyond borders with documented, accountable shipments.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🤝</div>
+                    <h3>Community Engagement</h3>
+                    <p>Through drives, events, and volunteer coordination, we build awareness and mobilize community members to join us in creating meaningful, measurable impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact / Gallery -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Impact</span>
+                <h2>Making a Difference</h2>
+                <p>Every donation, every hour volunteered, every connection made — it all adds up to real change.</p>
+            </div>
+
+            <div class="gallery">
+                <div class="gallery-item wide">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&h=400&fit=crop" alt="Backpacks ready for distribution">
+                    <div class="gallery-overlay">Backpacks ready for distribution</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=400&fit=crop" alt="School supplies">
+                    <div class="gallery-overlay">Branded supply kits</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=400&h=400&fit=crop" alt="Pencil pouches">
+                    <div class="gallery-overlay">Complete pencil pouches</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop" alt="Notebooks and supplies">
+                    <div class="gallery-overlay">Notebooks for every student</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=400&fit=crop" alt="Supply kit contents">
+                    <div class="gallery-overlay">Full supply kit contents</div>
+                </div>
+                <div class="gallery-item wide">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop" alt="Organized supplies">
+                    <div class="gallery-overlay">Organized and ready to go</div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Lives Supported</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Backpacks Distributed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Countries Reached</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Volunteer-Driven</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Leadership</span>
+                <h2>Our Team</h2>
+                <p>Dedicated volunteers guiding The Rooted Hands with passion and purpose.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">DL</div>
+                    <h3>Dawin Liranzo Galan</h3>
+                    <p class="role">President</p>
+                    <p>Leading organizational strategy, community partnerships, and program development. Committed to expanding The Rooted Hands' reach across New York and the Caribbean.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JC</div>
+                    <h3>Joel Cedano</h3>
+                    <p class="role">Treasurer</p>
+                    <p>Managing financial oversight, budgeting, and compliance. Ensuring every dollar is accounted for and directed toward maximum community impact.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">KM</div>
+                    <h3>Katherine Morillo</h3>
+                    <p class="role">Secretary</p>
+                    <p>Coordinating operations, documentation, and board governance. Keeping the organization structured, transparent, and mission-focused.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate CTA -->
+    <section class="donate" id="donate">
+        <div class="container">
+            <span class="section-label" style="background: rgba(255,255,255,0.2); color: var(--white);">Support Us</span>
+            <h2>Help Us Grow Our Impact</h2>
+            <p>Your tax-deductible donation directly funds school supplies, food packages, sports equipment, and scholarships for individuals and families in need. Every contribution matters.</p>
+            <a href="#" class="btn btn-primary">Donate Now</a>
+            <div class="donate-info">
+                <p>The Rooted Hands INC. is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible to the fullest extent allowed by law.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <footer class="contact" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-icon">RH</div>
+                    <p>The Rooted Hands INC. is a 501(c)(3) nonprofit dedicated to nurturing communities through essential support and educational access.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/therootedhands" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <a href="#programs">School Supplies</a>
+                    <a href="#programs">Food Distribution</a>
+                    <a href="#programs">Sports Equipment</a>
+                    <a href="#programs">Scholarships</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Organization</h4>
+                    <a href="#mission">Our Mission</a>
+                    <a href="#impact">Impact</a>
+                    <a href="#team">Team</a>
+                    <a href="#">Annual Reports</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@therootedhands.org">info@therootedhands.org</a>
+                    <a href="https://instagram.com/therootedhands" target="_blank">@therootedhands</a>
+                    <a href="#">New York, NY</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 The Rooted Hands INC. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
